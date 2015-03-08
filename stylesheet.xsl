@@ -8,7 +8,11 @@
         <Shapes
         id="nz.nwatson.MaterialIcons"
         displayName="Material Icons"
-        description="Google's Material Icons"
+        description="Google's Material Design Icons.
+        &#13;
+        &#13;This Pencil stencil collection is based on 'Material Design Icons' by Google (http://google.github.io), used under an Attribution 4.0 International license (http://creativecommons.org/licenses/by/4.0/).
+        &#13;
+        &#13;Source code for generating this stencil collection can be found at https://github.com/nathanielw/Material-Icons-for-Pencil and is licensed under the MIT License."
         author="Icons by Google (google.github.io), Pencil Stencil by Nathaniel Watson (nwatson.nz)"
         url="https://github.com/nathanielw/Material-Icons-for-Pencil">
 
