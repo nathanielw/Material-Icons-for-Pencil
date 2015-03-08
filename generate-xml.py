@@ -6,7 +6,7 @@ import shutil
 
 src_path = Path('./material-design-icons/')
 sprite_files = list(src_path.glob('**/svg/production/*48px.svg'))
-file_element = etree.Element("files")
+files_element = etree.Element("files")
 
 # set up the output dir
 out = Path('gen/')
@@ -18,11 +18,20 @@ if out.exists and out.is_dir():
 icons_out.mkdir(parents=True)
 
 for f in sprite_files:
-	element = etree.SubElement(file_element, "file")
+	element = etree.SubElement(files_element, 'file')
 	element.text = str(f)
+	element.set('id', f.stem)
+	element.set('name', f.stem)
 
-	with open(os.path.join(str(icons_out), f.stem + '.png'),'wb+') as out:
-		thumb = cairosvg.svg2png(file_obj=str(f), write_to=out)
+	icon_name = f.stem + '.png'
+	element.set('icon', str(os.path.join(str(icons_out.relative_to(out)), icon_name)))
 
+	with open(os.path.join(str(icons_out), icon_name),'wb+') as icon_out:
+		thumb = cairosvg.svg2png(file_obj=str(f), write_to=icon_out)
 
-print(etree.tostring(file_element))
+stylesheet = etree.parse('stylesheet.xsl')
+transform = etree.XSLT(stylesheet)
+
+result = transform(files_element)
+
+result.write(os.path.join(str(out), 'Definition.xml'), pretty_print=True)
