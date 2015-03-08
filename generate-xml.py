@@ -3,6 +3,9 @@ from pathlib import Path
 import cairosvg
 import os
 import shutil
+import re
+
+name_re = re.compile(r'.+\/(.+?)\/svg\/production\/ic_(.+)_')
 
 src_path = Path('./material-design-icons/')
 sprite_files = list(src_path.glob('**/svg/production/*48px.svg'))
@@ -21,7 +24,9 @@ for f in sprite_files:
 	element = etree.SubElement(files_element, 'file')
 	element.text = str(f)
 	element.set('id', f.stem)
-	element.set('name', f.stem)
+
+	match = name_re.search(str(f))
+	element.set('name', (match.group(1) + ' - ' + match.group(2).replace('_', ' ')).title())
 
 	icon_name = f.stem + '.png'
 	element.set('icon', str(os.path.join(str(icons_out.relative_to(out)), icon_name)))
