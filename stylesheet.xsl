@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.evolus.vn/Namespace/Pencil" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.evolus.vn/Namespace/Pencil"         xmlns:p="http://www.evolus.vn/Namespace/Pencil"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0">
     <xsl:output method="xml" indent="yes"/>
 
     <xsl:template match="files">
         <Shapes
-        xmlns:p="http://www.evolus.vn/Namespace/Pencil"
-        xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
         id="nz.nwatson.MaterialIcons"
         displayName="Material Icons"
         description="Google's Material Icons"
@@ -29,14 +28,23 @@
         <Shape id="{./@id}" displayName="{./@name}" icon="{./@icon}">
             <Properties>
                 <PropertyGroup>
-                    <Property name="box" type="Dimension"><xsl:value-of select="$svg/@width" />,<xsl:value-of select="$svg/@height" /></Property>
+                    <Property name="box" type="Dimension" p:lockRatio="true"><xsl:value-of select="$svg/@width" />,<xsl:value-of select="$svg/@height" /></Property>
                 </PropertyGroup>
                 <PropertyGroup name="Background">
                     <Property name="fillColor" displayName="Color" type="Color"><E>$$fillColor</E></Property>
                 </PropertyGroup>
             </Properties>
+
+            <Behaviors>
+                <For ref="icon">
+                    <Transform>scale($box.w/<xsl:value-of select="$svg/@width" />, $box.h/<xsl:value-of select="$svg/@height" />)</Transform>
+                    <Fill>$fillColor</Fill>
+                </For>
+            </Behaviors>
             <p:Content xmlns:p="http://www.evolus.vn/Namespace/Pencil" xmlns="http://www.w3.org/2000/svg">
-                <xsl:copy-of select="$svg/*"/>
+                <g id="icon">
+                    <xsl:copy-of select="$svg/*"/>
+                </g>
             </p:Content>
         </Shape>
     </xsl:template>
