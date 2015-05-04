@@ -8,6 +8,9 @@ Based on the 48px version of the icons, however everything is in vector format, 
 - Install the collection in Pencil by going to *Tools > Install new collection* and selecting the zip.
 - Enjoy!
 
+### Updating
+Right-click on the collection in Pencil's sidebar and choose _Uninstall this collection_ before repeating the installation steps.
+
 ## Generating the Collection
 - Clone this repo with the `--recursive` flag to include submodules. (or just clone it normally then `git submodule init` and `git submodule update`)
 - Run the `generate-xml.py` script (tested with Python 3.4).
