@@ -8,7 +8,7 @@ import re
 name_re = re.compile(r'.+\/(.+?)\/svg\/production\/ic_(.+)_')
 
 src_path = Path('./material-design-icons/')
-sprite_files = list(src_path.glob('**/svg/production/*24px.svg'))
+sprite_files = sorted(list(src_path.glob('**/svg/production/*24px.svg')), key=lambda file: file.as_posix())
 files_element = etree.Element("files")
 
 # set up the output dir
