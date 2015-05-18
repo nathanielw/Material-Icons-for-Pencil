@@ -1,7 +1,7 @@
 # Material Icons for Pencil
 All 800+ of Google's [Material Design Icons](https://github.com/google/material-design-icons) as a [Pencil](https://github.com/prikhi/pencil) stencil collection.
 
-Based on the 48px version of the icons, however everything is in vector format, so can be scaled to any size.
+Based on the 24px version of the icons, however everything is in vector format, so can be scaled to any size.
 
 ## Installation
 - Download the [latest release](https://github.com/nathanielw/Material-Icons-for-Pencil/releases/latest) zip file.
