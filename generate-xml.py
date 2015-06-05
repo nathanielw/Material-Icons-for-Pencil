@@ -22,14 +22,14 @@ icons_out.mkdir(parents=True)
 
 for f in sprite_files:
 	element = etree.SubElement(files_element, 'file')
-	element.text = str(f)
+	element.text = f.as_posix()
 	element.set('id', f.stem)
 
-	match = name_re.search(str(f))
+	match = name_re.search(f.as_posix())
 	element.set('name', (match.group(1) + ' - ' + match.group(2).replace('_', ' ')).title())
 
 	icon_name = f.stem + '.png'
-	element.set('icon', str(os.path.join(str(icons_out.relative_to(out)), icon_name)))
+	element.set('icon', icons_out.relative_to(out).joinpath(icon_name).as_posix()) # Pencil uses Unix-style paths for icons
 
 	with open(os.path.join(str(icons_out), icon_name),'wb+') as icon_out:
 		thumb = cairosvg.svg2png(file_obj=str(f), write_to=icon_out)
