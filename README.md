@@ -19,6 +19,8 @@ This will generate the stencil definition XML and png thumbnails and place them 
 
 Everything **inside** the `gen/` folder can then be zip'd and installed in Pencil.
 
+Windows users wanting to **generate** the collection: see [this comment](https://github.com/nathanielw/Material-Icons-for-Pencil/issues/2#issuecomment-108849198).
+
 ## License
 [Material Design Icons](https://github.com/google/material-design-icons) by Google are released under an [Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
 
