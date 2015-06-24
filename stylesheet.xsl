@@ -51,9 +51,25 @@
             </Behaviors>
             <p:Content xmlns:p="http://www.evolus.vn/Namespace/Pencil" xmlns="http://www.w3.org/2000/svg">
                 <g id="icon">
-                    <xsl:copy-of select="$svg/*"/>
+                    <xsl:apply-templates select="$svg/*"/>
                 </g>
             </p:Content>
         </Shape>
+    </xsl:template>
+
+    <xsl:template name="identity">
+        <xsl:copy>
+            <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="svg:svg/*">
+        <xsl:call-template name="identity"/>
+    </xsl:template>
+
+    <xsl:template match="@*">
+        <xsl:if test="name() != 'fill' and name() != 'fill-opacity'">
+                <xsl:call-template name="identity"/>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
