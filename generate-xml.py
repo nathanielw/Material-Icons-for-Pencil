@@ -5,10 +5,7 @@ import os
 import shutil
 import re
 
-name_re = re.compile(r'.+\/(.+?)\/svg\/production\/ic_(.+)_')
-
-src_path = Path('./material-design-icons/')
-sprite_files = sorted(list(src_path.glob('**/svg/production/*24px.svg')), key=lambda file: file.as_posix())
+sprite_files = sorted(list(Path('./MaterialDesign/icons/svg/').glob('*.svg')), key=lambda file: file.as_posix())
 files_element = etree.Element("files")
 
 # set up the output dir
@@ -25,8 +22,7 @@ for f in sprite_files:
 	element.text = f.as_posix()
 	element.set('id', f.stem)
 
-	match = name_re.search(f.as_posix())
-	element.set('name', (match.group(1) + ' - ' + match.group(2).replace('_', ' ')).title())
+	element.set('name', (f.stem.replace('-', ' ')).title())
 
 	icon_name = f.stem + '.png'
 	element.set('icon', icons_out.relative_to(out).joinpath(icon_name).as_posix()) # Pencil uses Unix-style paths for icons
