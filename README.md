@@ -3,6 +3,8 @@ All 800+ of Google's [Material Design Icons](https://github.com/google/material-
 
 Based on the 24px version of the icons, however everything is in vector format, so can be scaled to any size.
 
+*Check out my other stencil collections for Pencil at [nathanielw.github.io/pencil-stencils](http://nathanielw.github.io/pencil-stencils/)*
+
 ## Installation
 - Download the [latest release](https://github.com/nathanielw/Material-Icons-for-Pencil/releases/latest) zip file.
 - Install the collection in Pencil by going to *Tools > Install new collection* and selecting the zip.
