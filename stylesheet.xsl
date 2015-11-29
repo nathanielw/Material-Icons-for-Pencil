@@ -8,12 +8,16 @@
         <Shapes
         id="nz.nwatson.MaterialIcons"
         displayName="Material Icons"
-        description="Google's Material Design Icons.
+        description="Material Design Icons. Icons from https://materialdesignicons.com/
         &#13;
-        &#13;This Pencil stencil collection is based on 'Material Design Icons' by Google (http://google.github.io), used under an Attribution 4.0 International license (http://creativecommons.org/licenses/by/4.0/).
+        &#13;This Pencil stencil collection consists of icons from:
+        &#13; - 'Material Design Icons' by Google (http://google.github.io), used under an Attribution 4.0 International license (http://creativecommons.org/licenses/by/4.0/).
+        &#13; - MaterialDesignIcons.com contributors, used under the SIL Open Font License 1.1 (https://github.com/Templarian/MaterialDesign/blob/master/license.txt)
+        &#13;
+        &#13;Please check the linked licenses for each icon's conditions of use.
         &#13;
         &#13;Source code for generating this stencil collection can be found at https://github.com/nathanielw/Material-Icons-for-Pencil and is licensed under the MIT License."
-        author="Icons by Google (google.github.io), Pencil Stencil by Nathaniel Watson (nwatson.nz)"
+        author="Icons by Google (google.github.io) and MaterialDesignIcons.com contributors. Pencil Stencil by Nathaniel Watson (nwatson.nz)"
         url="https://github.com/nathanielw/Material-Icons-for-Pencil">
 
             <Properties>
@@ -47,9 +51,25 @@
             </Behaviors>
             <p:Content xmlns:p="http://www.evolus.vn/Namespace/Pencil" xmlns="http://www.w3.org/2000/svg">
                 <g id="icon">
-                    <xsl:copy-of select="$svg/*"/>
+                    <xsl:apply-templates select="$svg/*"/>
                 </g>
             </p:Content>
         </Shape>
+    </xsl:template>
+
+    <xsl:template name="identity">
+        <xsl:copy>
+            <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="svg:svg/*">
+        <xsl:call-template name="identity"/>
+    </xsl:template>
+
+    <xsl:template match="@*">
+        <xsl:if test="name() != 'fill' and name() != 'fill-opacity'">
+                <xsl:call-template name="identity"/>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
