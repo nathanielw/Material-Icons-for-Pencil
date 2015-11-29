@@ -1,3 +1,4 @@
 [submodule "MaterialDesign"]
 	path = MaterialDesign
 	url = https://github.com/Templarian/MaterialDesign.git
+	branch = master
