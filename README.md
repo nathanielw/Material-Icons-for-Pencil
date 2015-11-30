@@ -1,5 +1,5 @@
 # Material Icons for Pencil
-All 800+ of Google's [Material Design Icons](https://github.com/google/material-design-icons) as a [Pencil](https://github.com/prikhi/pencil) stencil collection.
+All 1000+ icons from [Material Design Icons](https://materialdesignicons.com/) as a [Pencil](https://github.com/prikhi/pencil) stencil collection.
 
 Based on the 24px version of the icons, however everything is in vector format, so can be scaled to any size.
 
@@ -24,6 +24,10 @@ Everything **inside** the `gen/` folder can then be zip'd and installed in Penci
 Windows users wanting to **generate** the collection: see [this comment](https://github.com/nathanielw/Material-Icons-for-Pencil/issues/2#issuecomment-108849198).
 
 ## License
-[Material Design Icons](https://github.com/google/material-design-icons) by Google are released under an [Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
+From the [Material Design Icons README](https://github.com/Templarian/MaterialDesign):
+
+>Community Icons - [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web)
+>
+>Google Material Design Icons - [Attribution 4.0 International](https://github.com/google/material-design-icons/blob/master/LICENSE)
 
 All source code/scripts used to generate the Pencil stencil are released under the [MIT License](http://opensource.org/licenses/mit-license.php).
