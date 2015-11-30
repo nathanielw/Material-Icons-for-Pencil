@@ -48,8 +48,12 @@
                     <Transform>scale($box.w/<xsl:value-of select="$svg/@width" />, $box.h/<xsl:value-of select="$svg/@height" />)</Transform>
                     <Fill>$fillColor</Fill>
                 </For>
+                <For ref="bgRect">
+                    <Box>$box</Box>
+                </For>
             </Behaviors>
             <p:Content xmlns:p="http://www.evolus.vn/Namespace/Pencil" xmlns="http://www.w3.org/2000/svg">
+                <rect id="bgRect" style="fill: #000000; fill-opacity: 0; stroke: none;" x="0" y="0" />
                 <g id="icon">
                     <xsl:apply-templates select="$svg/*"/>
                 </g>
