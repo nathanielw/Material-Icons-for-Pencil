@@ -1,4 +1,13 @@
 # Material Icons for Pencil
+
+----
+
+## ⚠️ No longer actively developed
+Other commitments and the fact I no longer use Pencil mean this repo is no longer being actively worked on.
+Pull-requests with new features/fixes are still welcome, as are new issues, but my responses might not be the speediest 🙂
+
+----
+
 All 1000+ icons from [Material Design Icons](https://materialdesignicons.com/) as a [Pencil](https://github.com/prikhi/pencil) stencil collection.
 
 Based on the 24px version of the icons, however everything is in vector format, so can be scaled to any size.
