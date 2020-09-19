@@ -11,11 +11,13 @@ files_element = etree.Element("files")
 # set up the output dir
 out = Path('gen/')
 icons_out = Path(out, 'icons/')
+svgs_out = Path(out, 'vectors/')
 
 if out.exists and out.is_dir():
 	shutil.rmtree(str(out))
 
 icons_out.mkdir(parents=True)
+svgs_out.mkdir(parents=True)
 
 for f in sprite_files:
 	element = etree.SubElement(files_element, 'file')
@@ -27,8 +29,14 @@ for f in sprite_files:
 	icon_name = f.stem + '.png'
 	element.set('icon', icons_out.relative_to(out).joinpath(icon_name).as_posix()) # Pencil uses Unix-style paths for icons
 
+	svg_file = open(str(f), 'rb')
+	svg_dest_file = open(os.path.join(str(svgs_out), f.stem + '.svg'), 'wb+')
+	shutil.copyfileobj(svg_file, svg_dest_file)
+
 	with open(os.path.join(str(icons_out), icon_name),'wb+') as icon_out:
-		thumb = cairosvg.svg2png(file_obj=str(f), write_to=icon_out)
+		thumb = cairosvg.svg2png(file_obj=svg_file, write_to=icon_out)
+
+
 
 stylesheet = etree.parse('stylesheet.xsl')
 transform = etree.XSLT(stylesheet)

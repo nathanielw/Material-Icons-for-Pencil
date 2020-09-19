@@ -4,6 +4,10 @@
         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0">
     <xsl:output method="xml" indent="yes"/>
 
+    <xsl:template match="/">
+      <xsl:apply-templates select="files"/>
+    </xsl:template>
+
     <xsl:template match="files">
         <Shapes
         id="nz.nwatson.MaterialIcons"
@@ -27,6 +31,12 @@
             </Properties>
 
             <xsl:apply-templates/>
+
+            <Script comments="Resource script"><![CDATA[
+          collection.RESOURCE_LIST = [
+                  {name: "Material Icons", prefix: "vectors", type: "svg"}
+              ];
+          ]]></Script>
         </Shapes>
     </xsl:template>
 
